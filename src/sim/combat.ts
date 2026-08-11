@@ -111,7 +111,7 @@ export function hurtZombie(z: Zombie, dmg: number, px: number, py: number, head:
    그대로 쌓여 좀비가 안 보였다.
    지금은 방아쇠를 당기고 있는 동안 숫자 하나가 커지기만 한다. 누적 피해가
    보이니 관통이 얼마나 먹는지도 오히려 더 잘 읽힌다. */
-export const NUM_MAX = 22;
+const NUM_MAX = 22;
 export function tally(dmg: number, px: number, py: number, head: boolean, crit: boolean){
   const n = g.tallyN;
   if(n && n.life > 0.3 && g.nums.indexOf(n) >= 0){
@@ -130,7 +130,7 @@ export function pushNum(n: FloatNum){
   while(g.nums.length >= NUM_MAX) g.nums.shift();
   g.nums.push(n);
 }
-export function killZombie(z: Zombie, head: boolean){
+function killZombie(z: Zombie, head: boolean){
   z.dead = true;
   const b = box(z);
   blood(b.cx, b.cy, head ? 26 : 18, b.s);       // 처치 순간이 제일 크게 튀어야 한다
@@ -179,11 +179,11 @@ export function killZombie(z: Zombie, head: boolean){
     inBoom = false;
   }
 }
-export let inBoom = false;
-export let boomLeft = 0;
+let inBoom = false;
+let boomLeft = 0;
 export function setBoomLeft(n: number): void { boomLeft = n; }                               // 한 발이 일으킬 수 있는 폭발 횟수
 
-export const PART_MAX = 720;                            // 입자 상한 — 학살 규모가 커지면 여기서 막힌다
+const PART_MAX = 720;                            // 입자 상한 — 학살 규모가 커지면 여기서 막힌다
 export const BLOOD = [0,1,2,3,4,5].map(i=>{             // 알파 6단계 미리 만들어 둔 혈흔색
   const a = (i + 0.5) / 6;
   return `rgba(${(150 + a*60)|0},26,21,${a.toFixed(2)})`;

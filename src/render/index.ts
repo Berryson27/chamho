@@ -16,9 +16,9 @@ import { drawZombie } from './zombie';
 import type { Particle, Work, Zombie } from '../types';
 
 /* 좀비와 방어선을 한 배열에 섞어 거리로 정렬한다. kind 가 있으면 방어선. */
-export const DEPTH: Array<Zombie | Work> = [];                                // 깊이 정렬용 재사용 버퍼
+const DEPTH: Array<Zombie | Work> = [];                                // 깊이 정렬용 재사용 버퍼
 /* 같은 거리면 방어선(kind 가 있는 쪽)을 살짝 앞에 둔다 */
-export const depthCmp = (a: Zombie | Work, b: Zombie | Work) => (b.d - ('kind' in b ? 0.001 : 0)) - (a.d - ('kind' in a ? 0.001 : 0));
+const depthCmp = (a: Zombie | Work, b: Zombie | Work) => (b.d - ('kind' in b ? 0.001 : 0)) - (a.d - ('kind' in a ? 0.001 : 0));
 
 export function render(){
   ctx.setTransform(1,0,0,1,0,0);

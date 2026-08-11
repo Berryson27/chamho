@@ -155,7 +155,7 @@ export function drawShop(){
     ctx.fillText('자금 부족', W/2, 182);
   }
 }
-export function shopBtn(b: Rect, label: string, on: boolean, col: string, hint: string){
+function shopBtn(b: Rect, label: string, on: boolean, col: string, hint: string){
   const hov = inBtn(b);
   ctx.beginPath(); ctx.roundRect(b.x, b.y, b.w, b.h, 4);
   ctx.fillStyle = on ? (hov ? `rgba(255,255,255,.10)` : 'rgba(255,255,255,.04)')
@@ -170,7 +170,7 @@ export function shopBtn(b: Rect, label: string, on: boolean, col: string, hint: 
   ctx.fillText(hint, b.x + b.w/2, b.y + b.h + 12);
 }
 /* 좌측 정렬 줄바꿈 — 카드 설명이 두 줄까지 흐르게 */
-export function wrapLeft(txt: string, x: number, y: number, maxw: number, lh: number){
+function wrapLeft(txt: string, x: number, y: number, maxw: number, lh: number){
   const words = txt.split(' '); let line = '', yy = y;
   ctx.textAlign = 'left';
   words.forEach((w: string) =>{
@@ -297,7 +297,7 @@ export function drawPlace(){
 
 /* 스텐실 제목 — 어두운 사본을 아래로 깔고 그 위에 본색을 올려
    판에 찍어낸 것처럼 보이게 한다 */
-export function stencil(txt: string, cx: number, y: number, size: number, col: string, sp: number){
+function stencil(txt: string, cx: number, y: number, size: number, col: string, sp: number){
   font(size, 800, sp || 0); ctx.textAlign = 'center';
   ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillText(txt, cx + 4, y + 5);
   ctx.fillStyle = 'rgba(20,10,8,.9)'; ctx.fillText(txt, cx + 1.5, y + 2);

@@ -6,7 +6,7 @@ import { fogT } from './colors';
 /* 공중에 떠 있는 먼지 — 달빛에 걸려 반짝이는 것만으로 공기가 생긴다.
    매 프레임 새로 만들지 않고 고정 시드로 한 번만 배치한다. */
 type Mote = { wx: number; d: number; hh: number; ph: number; sp: number };
-export const MOTES: Mote[] = [];
+const MOTES: Mote[] = [];
 for(let i=0;i<72;i++){
   MOTES.push({
     wx: (((i*53) % 100) / 100 * 2 - 1) * 4.4,

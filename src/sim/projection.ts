@@ -2,7 +2,7 @@ import { HORIZON, PROJ_K, PROJ_S, PROJ_X, PROJ_Y, W } from '../config';
 import type { Zombie } from '../types';
 
 /* ── 투영 헬퍼 ─────────────────────────────────────────── */
-export const projP = (d: number) => 1 / (d + PROJ_K);
+const projP = (d: number) => 1 / (d + PROJ_K);
 export const projY = (d: number) => HORIZON + PROJ_Y * projP(d);
 export const projX = (wx: number,d: number) => W/2 + wx * PROJ_X * projP(d);
 export const projS = (d: number) => PROJ_S * projP(d);

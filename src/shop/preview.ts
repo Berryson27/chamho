@@ -19,7 +19,7 @@ export function wpick(arr: Upgrade[]){
    "데미지 +30%" 만 보여주면 14 가 18 이 되는 걸 플레이어가 암산해야 한다.
    카드마다 설명을 따로 적어두는 대신, 상태 사본에 f() 를 실제로 돌려보고
    달라진 값만 집어낸다 — 업그레이드를 추가해도 여기는 손댈 필요가 없다. */
-export const PV: Array<[string, (p: EffectTarget) => string]> = [
+const PV: Array<[string, (p: EffectTarget) => string]> = [
   ['데미지',    (p: EffectTarget) =>p.gun.dmg.toFixed(1)],
   ['연사',      (p: EffectTarget) =>p.gun.rate.toFixed(2) + '/s'],
   ['탄창',      (p: EffectTarget) =>p.gun.mag + '발'],
@@ -39,7 +39,7 @@ export const PV: Array<[string, (p: EffectTarget) => string]> = [
 ];
 /* 실제 g 를 건드리지 않고 효과 함수를 돌려보기 위한 사본.
    works 는 얕게 복사한다 — 효과가 배열 자체를 바꾸지는 않는다. */
-export function probe(): EffectTarget {
+function probe(): EffectTarget {
   return {gun: Object.assign({}, g.gun), barMax: g.barMax, bar: g.bar,
           maxHp: g.maxHp, hp: g.hp, slow: g.slow, armor: g.armor,
           repair: g.repair, spikes: g.spikes, steal: g.steal,

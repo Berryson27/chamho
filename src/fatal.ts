@@ -1,5 +1,5 @@
 /* ── 죽었을 때 검은 화면 대신 원인을 보여준다 ──────────── */
-export function showFatal(msg: string){
+function showFatal(msg: string){
   const el = document.getElementById('fatal');
   if(!el) return;
   el.style.cssText = 'position:absolute;inset:0;display:flex;flex-direction:column;'

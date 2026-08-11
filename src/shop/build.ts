@@ -8,7 +8,7 @@ import { BOOST } from './shop';
 import type { WorkKind } from '../types';
 
 /* ── 방어선 설치 ───────────────────────────────────────── */
-export function slotFree(i: number){ return !g.works.some(w=>w.slot === i); }
+function slotFree(i: number){ return !g.works.some(w=>w.slot === i); }
 
 /* want='free' 면 빈 자리, 'used' 면 보강 가능한 자리를 고른다 */
 export function nearestSlot(y: number, want: 'free' | 'used'){

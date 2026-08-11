@@ -1,6 +1,6 @@
 /* ── 사운드 (외부 파일 없이 WebAudio로 합성) ───────────── */
-export let AC: AudioContext | null = null;
-export let noiseBuf: AudioBuffer | null = null;
+let AC: AudioContext | null = null;
+let noiseBuf: AudioBuffer | null = null;
 /* 이미 깨어난 컨텍스트를 좁혀서 돌려준다.
    sfx* 는 전부 `if(!AC) return;` 로 시작하므로 이 뒤에서는 null 이 아니다. */
 function ac(): AudioContext { return AC as AudioContext; }
@@ -14,7 +14,7 @@ export function audioInit(){
   const d = noiseBuf.getChannelData(0);
   for(let i=0;i<n;i++) d[i] = Math.random()*2 - 1;
 }
-export function env(node: AudioNode, vol: number, atk: number, dec: number){
+function env(node: AudioNode, vol: number, atk: number, dec: number){
   const g = ac().createGain();
   g.gain.setValueAtTime(0, ac().currentTime);
   g.gain.linearRampToValueAtTime(vol, ac().currentTime + atk);

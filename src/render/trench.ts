@@ -5,7 +5,7 @@ import { g } from '../state';
 import { font } from './theme';
 
 /* 모래주머니 한 개 */
-export function sandbag(cx: number, cy: number, rx: number, ry: number, lit: boolean, tear: number){
+function sandbag(cx: number, cy: number, rx: number, ry: number, lit: boolean, tear: number){
   const grd = ctx.createLinearGradient(cx, cy - ry, cx, cy + ry);
   grd.addColorStop(0,    lit ? '#8a7c62' : '#6f6450');
   grd.addColorStop(0.48, lit ? '#5f553f' : '#4c4432');
@@ -31,7 +31,7 @@ export function sandbag(cx: number, cy: number, rx: number, ry: number, lit: boo
 }
 
 /* 철조망 코일 */
-export function wireCoil(y: number){
+function wireCoil(y: number){
   ctx.strokeStyle = 'rgba(158,160,150,.62)'; ctx.lineWidth = 2;
   for(let x=-30;x<W+50;x+=48){
     const yy = y + Math.sin(x*0.045)*5;

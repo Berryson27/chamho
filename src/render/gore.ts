@@ -12,16 +12,16 @@ import type { Corpse, Ctx2D } from '../types';
    ─────────────────────────────────────────────────────── */
 export const gore = document.createElement('canvas');
 gore.width = W; gore.height = H;
-export const gctx = gore.getContext('2d') as Ctx2D;
+const gctx = gore.getContext('2d') as Ctx2D;
 export function clearGore(){ gctx.clearRect(0, 0, W, H); lastFade = 0; }
-export function fadeGore(){
+function fadeGore(){
   gctx.globalCompositeOperation = 'destination-out';
   gctx.fillStyle = 'rgba(0,0,0,0.05)';
   gctx.fillRect(0, 0, W, H);
   gctx.globalCompositeOperation = 'source-over';
 }
 /* x = 대상 컨텍스트. 시체 층에 찍을 때만 쓴다. */
-export function paintCorpse(x: Ctx2D, c: Corpse){
+function paintCorpse(x: Ctx2D, c: Corpse){
   const s = c.s;
   // 거리만큼 안개에 묻혀야 바닥에 깊이가 생긴다
   const t = Math.max(0.38, fogT(c.d == null ? 1.6 : c.d));

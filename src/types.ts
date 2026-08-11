@@ -219,7 +219,7 @@ export type Ctx2D = CanvasRenderingContext2D & { letterSpacing?: string };
    ══════════════════════════════════════════════════════════ */
 /* 손댈 수 있는 스탯의 전체 목록. 여기 없는 건 효과로 바꿀 수 없다 —
    오타가 런타임 버그가 아니라 컴파일 오류가 된다. */
-export const GUN_KEYS = ['dmg', 'rate', 'mag', 'reload', 'pierce',
+const GUN_KEYS = ['dmg', 'rate', 'mag', 'reload', 'pierce',
                   'crit', 'head', 'fall', 'boom', 'shots'] as const;
 export type GunKey = typeof GUN_KEYS[number];
 export type TopKey = 'barMax' | 'bar' | 'maxHp' | 'hp'

@@ -3,7 +3,7 @@ import { gunTier } from '../data/branches';
 import { BARREL, gunAim } from '../sim/aim';
 import { g } from '../state';
 
-export function poly(pts: number[][]){
+function poly(pts: number[][]){
   ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
   for(let i=1;i<pts.length;i++) ctx.lineTo(pts[i][0], pts[i][1]);
   ctx.closePath(); ctx.fill();
@@ -19,10 +19,10 @@ export function poly(pts: number[][]){
    가장 어두운 톤도 #1e 이상으로 유지한다. */
 /* 0 제식(목재+청강) → 1 개조 → 2 본격 → 3 중화기 → 4 최종.
    연사 계열은 황동·주황 쪽으로, 관통 계열은 강청색 쪽으로 갈린다. */
-export const GUN_MAT_BASE =
+const GUN_MAT_BASE =
   {wood:['#8a6737','#634624','#3a2915'], body:['#6a6154','#4c463b','#2e2924'],
    metal:['#8f867a','#665f56','#3d3833'], grip:'#332714', tint:'#a37c40'};
-export const GUN_MAT = {
+const GUN_MAT = {
   rate: [
     GUN_MAT_BASE,
     {wood:['#6b5a3c','#4c4029','#2c251a'], body:['#635a4a','#463f33','#292419'],
@@ -49,7 +49,7 @@ export const GUN_MAT = {
 /* 세로로 세운 원통 느낌 — 왼쪽 모서리가 밝고 가운데가 몸통색, 오른쪽이 그늘.
    어두운 외곽선을 같이 두른다. 참호 바닥이 총 색과 비슷해서 선이 없으면
    총의 절반이 배경에 묻혀 사라진다. */
-export function tube(x: number, y: number, w: number, h: number, cols: string[], r?: number){
+function tube(x: number, y: number, w: number, h: number, cols: string[], r?: number){
   const grd = ctx.createLinearGradient(x, 0, x + w, 0);
   grd.addColorStop(0,    cols[0]);
   grd.addColorStop(0.34, cols[1]);
@@ -58,7 +58,7 @@ export function tube(x: number, y: number, w: number, h: number, cols: string[],
   ctx.fillStyle = grd; ctx.fill();
   ctx.strokeStyle = 'rgba(0,0,0,.55)'; ctx.lineWidth = 1.6; ctx.stroke();
 }
-export function screw(x: number, y: number, r: number, col?: string){
+function screw(x: number, y: number, r: number, col?: string){
   ctx.fillStyle = col || '#1a1814';
   ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill();
   ctx.strokeStyle = 'rgba(255,255,255,.16)'; ctx.lineWidth = Math.max(0.6, r*0.28);

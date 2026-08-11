@@ -21,7 +21,7 @@ export const C = {
   red:   '#d9483a',
 };
 
-export const FONT = '"Pretendard","Malgun Gothic","Segoe UI",sans-serif';
+const FONT = '"Pretendard","Malgun Gothic","Segoe UI",sans-serif';
 /* 폰트와 자간을 항상 같이 세팅 — 자간이 다음 텍스트로 새지 않게 */
 export function font(size: number, weight: number, spacing: number){
   ctx.font = (weight || 400) + ' ' + size + 'px ' + FONT;

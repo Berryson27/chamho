@@ -6,7 +6,7 @@ import type { BranchKey, Rect } from '../types';
    그리기와 클릭 판정이 어긋나면 호버는 켜지는데 클릭이 안 먹는 띠가 생긴다. */
 /* 4열 3행 = 12칸. 진열 6 + 방어선 3 + 보급 2 를 한 화면에 다 올리려면
    3열로는 마지막 줄이 화면 밖으로 나간다. */
-export const CARD = {w: 286, h: 132, gx: 16, gy: 14, y: 196, cols: 4};
+const CARD = {w: 286, h: 132, gx: 16, gy: 14, y: 196, cols: 4};
 export function cardRect(i: number){
   const col = i % CARD.cols, rowi = (i / CARD.cols) | 0;
   const x0 = W/2 - (CARD.w*CARD.cols + CARD.gx*(CARD.cols-1))/2;

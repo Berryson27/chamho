@@ -11,7 +11,7 @@ export function gunName(){
    수입은 마리수 증가 때문에 더 빠르게 늘어나므로(1→20웨이브에 약 40배),
    물가를 17%씩 복리로 올려도(20웨이브에 약 17배) 후반이 점점 풍족해진다.
    그 격차가 곧 "총이 괴물이 되는" 구간이다. */
-export const INFL = 1.17;
+const INFL = 1.17;
 export function inflation(){ return Math.pow(INFL, Math.max(0, g.wave - 1)); }
 /* 방어선 내구도 배수 — 설치하는 웨이브 기준으로 굳는다 */
 export function workHpMul(){ return 1 + g.wave * 0.34; }

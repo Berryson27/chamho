@@ -13,8 +13,8 @@ export function fogT(d: number){ return Math.max(0, Math.min(0.72, (d - 1.6) / 8
    ─────────────────────────────────────────────────────── */
 type ZTone = { body: string; deep: string; head: string; dark: string };
 type CTone = { body: string; head: string };
-export const ZCOL: Record<string, ZTone> = {};
-export const CCOL: Record<string, CTone> = {};
+const ZCOL: Record<string, ZTone> = {};
+const CCOL: Record<string, CTone> = {};
 export function zColors(type: ZombieKind, hue: number, t: number){
   const hb = ((hue + 16) / 6) | 0, tb = (t * 14) | 0;
   const key = type + hb + '_' + tb;
